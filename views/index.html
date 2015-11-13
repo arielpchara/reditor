@@ -1,0 +1,24 @@
+{% extends "layouts/default.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/lib/CodeMirror/lib/codemirror.css">
+<link rel="stylesheet" href="/lib/CodeMirror/theme/monokai.css">
+<link rel="stylesheet" href="/lib/CodeMirror/theme/dracula.css">
+<link rel="stylesheet" href="/lib/CodeMirror/addon/dialog/dialog.css">
+{% endblock %}
+
+{% block foot %}
+<script src="/lib/CodeMirror/lib/codemirror.js"></script>
+<script src="/lib/CodeMirror/mode/meta.js"></script>
+<script src="/js/addons.js" charset="utf-8"></script>
+<script src="/js/editor.min.js" charset="utf-8"></script>
+<script>
+    {% if filepath %}
+    var filepath = '{{filepath}}';
+    {% endif %}
+</script>
+{% endblock %}
+
+{% block body %}
+<textarea name="name" rows="8" cols="40">{{content}}</textarea>
+{% endblock %}

@@ -1,0 +1,12 @@
+{
+    "addons": [
+        "edit/closebrackets.js",
+        "edit/matchbrackets.js",
+        "edit/matchtags.js",
+        "search/search.js",
+        "search/searchcursor.js",
+        "mode/loadmode.js",
+        "dialog/dialog.js",
+        "edit/closetag.js"
+    ]
+}
