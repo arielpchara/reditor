@@ -25,6 +25,6 @@ fs.lstat(filepath,function (err, stat) {
   console.log(compressed);
   require('reditor').then(function (address) {
     var ip = _.chain(os.networkInterfaces()).where({'internal':false,'family':'IPv4'}).address;
-    console.log('http://'+(process.env.RDT_HOST|'localhost')+':'+address.port+'/'+compressed);
+    console.log('http://'+(process.env.RDT_HOST||'localhost')+':'+address.port+'/'+compressed);
   });
 });
