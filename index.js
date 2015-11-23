@@ -3,6 +3,7 @@ var nunjucks = require('nunjucks');
 var path = require('path');
 var fs = require('fs');
 var lzs = require('lz-string');
+var Q = require('q');
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -49,6 +50,11 @@ app.use(function(req, res) {
     res.render('index.html');
 });
 
-app.listen(process.env.RDT_PORT||8087, function () {
-    console.log('lets go');
+var deferred = Q.defer();
+
+var server = app.listen(process.env.RDT_PORT||8087, function () {
+    deferred.resolve(server.address());
+    console.log('lets go', server.address().address, server.address().port);
 });
+
+module.exports = deferred.promise;

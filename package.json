@@ -6,20 +6,33 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
-    "mon": "nodemon --watch public --watch views index.js"
+    "mon": "nodemon --watch public --watch views index.js",
+    "postinstall":"scripts/postinstall.js"
   },
   "bin": {
     "reditor": "bin/reditor.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arielpchara/reditor"
+  },
+  "author": {
+    "name": "Ariel Pchara",
+    "email": "ariel@pchara.com",
+    "url": "http://ariel.pchara.com/"
+  },
   "license": "ISC",
   "dependencies": {
+    "argv": "0.0.2",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "gulp-express": "^0.3.5",
+    "lodash": "^3.10.1",
     "lz-string": "^1.4.4",
     "mime-types": "^2.1.7",
-    "nunjucks": "^2.1.0"
+    "nunjucks": "^2.1.0",
+    "open": "0.0.5",
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
