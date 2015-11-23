@@ -1,1 +1,1 @@
-require('child_process').exec("cd public/lib && git clone https://github.com/codemirror/CodeMirror.git");
+require('child_process').exec("cd public/lib && sudo git clone https://github.com/codemirror/CodeMirror.git");
