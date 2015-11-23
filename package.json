@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
-    "mon": "nodemon --watch public --watch views index.js",
-    "postinstall": "scripts/postinstall.js"
+    "mon": "nodemon --watch public --watch views index.js"
   },
   "bin": {
     "reditor": "bin/reditor.js"
