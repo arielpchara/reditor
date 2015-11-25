@@ -7,7 +7,7 @@
     "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "bin": {
-    "reditor": "./bin/reditor.js"
+    "reditor": "bin/reditor"
   },
   "repository": {
     "type": "git",
