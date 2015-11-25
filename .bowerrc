@@ -1,4 +1,4 @@
 {
-    "directory": "lib/",
-    "analytics": false
+    "directory": "public/lib/",
+    "analytics": true
 }

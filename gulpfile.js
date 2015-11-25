@@ -46,9 +46,16 @@ gulp.task('css:watch', ['css'], function() {
     return gulp.watch(['src/scss/**/*.scss'], ['css']);
 });
 
+gulp.task('about',function () {
+  console.log('Run reditor build..');
+  console.log('Taks avaiable:');
+  console.log('js - min javascript');
+  console.log('js:watch - watch javascript');
+})
+
 gulp.task('watch', ['css:watch', 'js:watch']);
 
-gulp.task('default', ['css', 'js']);
+gulp.task('default', ['about','css', 'js']);
 
 gulp.task('server:debug',['watch','server']);
 

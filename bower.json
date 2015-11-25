@@ -1,0 +1,25 @@
+{
+  "name": "reditor",
+  "description": "remote file editor",
+  "main": "index.js",
+  "authors": [
+    "Ariel Pchara"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/arielpchara/reditor",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "socket.io-client": "~1.3.7",
+    "codemirror": "CodeMirror#~5.9.0"
+  }
+}

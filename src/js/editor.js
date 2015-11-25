@@ -1,15 +1,15 @@
 (function ($) {
+
+    var socket = io('http://'+location.host);
+
+
     var savecode = function (editor) {
-        $.ajax({
-            url:location.pathname,
-            type:'POST',
-            data: {
+        socket.emit('write', {
+                filepath: filepath,
                 content: editor.getValue()
-            }
-        }).done(function (r) {
-            console.log(r);
-        });
+            });
     };
+
     var textarea = $('textarea')[0];
     if( textarea ){
         CodeMirror.modeURL = "/lib/CodeMirror/mode/%N/%N.js";
@@ -25,15 +25,26 @@
             theme: 'dracula'
         });
     }
+
     $(function() {
         if ( filepath ) {
-            $.getJSON('/read/' + filepath)
-                .done(function(response) {
-                    editor.setOption("value", response.content);
-                    editor.setOption("mode", response.mimetype);
-                    var info = CodeMirror.findModeByMIME(response.mimetype);
-                    CodeMirror.autoLoadMode(editor, info.mode);
-                });
+            socket.on('file', function (data) {
+              editor.setOption("value", data.content);
+              console.log(data);
+              if( data.mimetype ){
+                editor.setOption("mode", data.mimetype);
+                var info = CodeMirror.findModeByMIME(data.mimetype);
+                CodeMirror.autoLoadMode(editor, info.mode);
+              }
+            });
+            socket.emit('file',{filepath:filepath});
+            editor.on('change', savecode);
         }
+
+        $(window).bind("beforeunload",function() {
+          if( confirm("Proccess on the server will close!") ){
+            socket.emit('exit');
+          }
+        });
     });
 })(jQuery);
