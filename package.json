@@ -4,8 +4,7 @@
   "description": "remote file editor",
   "main": "index.js",
   "scripts": {
-    "release": "npm version patch && npm publish && git push --follow-tags",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "bin": {
     "reditor": "./bin/reditor.js"
