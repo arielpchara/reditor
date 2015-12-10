@@ -10,6 +10,11 @@
             });
     };
 
+    var quit = function () {
+      socket.emit('exit');
+      location.reload();
+    }
+
     var textarea = $('textarea')[0];
     if( textarea ){
         CodeMirror.modeURL = "/lib/CodeMirror/mode/%N/%N.js";
@@ -20,7 +25,8 @@
             // matchTags: true,
             autoCloseTags: true,
             extraKeys: {
-                'Ctrl-S': savecode
+                'Ctrl-S': savecode,
+                'Ctrl-Q': quit,
             },
             theme: 'dracula'
         });
@@ -30,7 +36,6 @@
         if ( filepath ) {
             socket.on('file', function (data) {
               editor.setOption("value", data.content);
-              console.log(data);
               if( data.mimetype ){
                 editor.setOption("mode", data.mimetype);
                 var info = CodeMirror.findModeByMIME(data.mimetype);
@@ -38,7 +43,7 @@
               }
             });
             socket.emit('file',{filepath:filepath});
-            editor.on('change', savecode);
+            // editor.on('change', savecode);
         }
 
         $(window).bind("beforeunload",function() {
