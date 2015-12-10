@@ -1,6 +1,6 @@
 {
   "name": "reditor",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "remote file editor",
   "main": "index.js",
   "scripts": {
